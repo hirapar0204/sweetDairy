@@ -6,6 +6,16 @@ target 'sweetDairy' do
   use_frameworks!
 
   # Pods for sweetDairy
+pod 'Appirater' 
+pod 'SDWebImage'
+
+#Firebase
+pod 'Firebase/Core'
+pod 'Firebase/Storage'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
+pod 'Firebase/Analytics'
+
 
   target 'sweetDairyTests' do
     inherit! :search_paths
