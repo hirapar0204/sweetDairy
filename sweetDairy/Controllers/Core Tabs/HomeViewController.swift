@@ -28,7 +28,6 @@ class HomeViewController: UIViewController{
                            forCellReuseIdentifier: IGFeedPostActionsTableViewCell.identifier)
         tableView.register(IGFeedPostGeneralTableViewCell.self,
                            forCellReuseIdentifier: IGFeedPostGeneralTableViewCell.identifier)
-        
         return tableView
     }()
     
@@ -76,7 +75,7 @@ class HomeViewController: UIViewController{
             }
         
         
-            for x in 0..<5 {
+    for _ in 0..<5 {
             
             let viewModel = HomeFeedRenderViewModel(header: PostRenderViewModel(renderType: .header(provider: user)),
                                                     post: PostRenderViewModel(renderType: .primaryContent(provider: post)),
@@ -186,7 +185,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         else if subSection == 2 {
             //actions
             switch model.actions.renderType {
-            case .actions(let provider):
+            case .actions(_):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostActionsTableViewCell.identifier,
                                                          for: indexPath) as! IGFeedPostActionsTableViewCell
                 cell.delegate = self
@@ -197,7 +196,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         else if subSection == 3 {
             //comments
             switch model.comments.renderType {
-            case .comments(let comments):
+            case .comments(_):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostGeneralTableViewCell.identifier,
                                                          for: indexPath) as! IGFeedPostGeneralTableViewCell
                 return cell

@@ -20,32 +20,13 @@
                     </tabBar>
                     <connections>
                         <segue destination="g65-I2-k65" kind="relationship" relationship="viewControllers" id="lNu-Sx-cCt"/>
-                        <segue destination="box-fY-pLk" kind="relationship" relationship="viewControllers" id="gY3-r2-eFn"/>
                         <segue destination="gs7-DM-SX2" kind="relationship" relationship="viewControllers" id="OkK-ov-czn"/>
-                        <segue destination="SB8-E1-fMm" kind="relationship" relationship="viewControllers" id="qnk-cS-hcZ"/>
                         <segue destination="HZZ-EO-SM9" kind="relationship" relationship="viewControllers" id="Yqm-Pd-f7e"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQu-kd-DXd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-300" y="-650"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="FOj-Zf-hTc">
-            <objects>
-                <navigationController id="box-fY-pLk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="globe" catalog="system" id="qnj-PF-iF3"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JTQ-hd-fyE">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="joo-xc-OCJ" kind="relationship" relationship="rootViewController" id="R2L-zM-Fk4"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dk6-Hb-TFg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1047" y="61"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -81,23 +62,6 @@
             <point key="canvasLocation" x="1201" y="61"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="5q5-iE-5IR">
-            <objects>
-                <navigationController id="SB8-E1-fMm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="bell" catalog="system" id="zm2-t7-WXx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8oF-4X-h5X">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="PLP-aV-NQZ" kind="relationship" relationship="rootViewController" id="m1z-Wa-SOe"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="say-h0-G9i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="448" y="61"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="Ysv-uR-iMo">
             <objects>
                 <navigationController id="g65-I2-k65" sceneMemberID="viewController">
@@ -124,7 +88,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vKy-Qi-Ljg" kind="relationship" relationship="rootViewController" id="Uzm-Q6-Zjy"/>
+                        <segue destination="iYo-ux-vNJ" kind="relationship" relationship="rootViewController" id="sCe-dx-tBr"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWb-Yd-zea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -147,83 +111,73 @@
             </objects>
             <point key="canvasLocation" x="1200" y="794"/>
         </scene>
-        <!--Notification View Controller-->
-        <scene sceneID="lI0-cY-X1d">
-            <objects>
-                <viewController id="PLP-aV-NQZ" customClass="NotificationViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="evg-CI-3Ai">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="kGq-VP-867"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="hwi-ut-3Je"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PUA-FT-7l3" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="448" y="794"/>
-        </scene>
         <!--Camera View Controller-->
-        <scene sceneID="Opw-re-uDA">
+        <scene sceneID="0rh-Ui-70A">
             <objects>
-                <viewController id="vKy-Qi-Ljg" customClass="CameraViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="d2B-1z-oyE">
+                <viewController id="iYo-ux-vNJ" customClass="CameraViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="65K-K4-RZZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajf-Ye-bH6">
+                                <rect key="frame" x="87" y="634" width="51" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="camera"/>
+                                <connections>
+                                    <action selector="onTappedCameraButton" destination="iYo-ux-vNJ" eventType="touchUpInside" id="ZHs-yi-oCg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6l-DB-w5u">
+                                <rect key="frame" x="290" y="634" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="album"/>
+                                <connections>
+                                    <action selector="onTappedAlbumButton" destination="iYo-ux-vNJ" eventType="touchUpInside" id="PJb-pr-bgG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vkO-OY-8QN">
+                                <rect key="frame" x="184" y="722" width="46" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="0dq-EF-ZiA" kind="show" id="o9b-vO-nzl"/>
+                                </connections>
+                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2NM-PG-MfB">
                                 <rect key="frame" x="0.0" y="88" width="414" height="414"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6l-DB-w5u">
-                                <rect key="frame" x="306" y="572" width="42" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="album"/>
-                                <connections>
-                                    <action selector="onTappedAlbumButton" destination="vKy-Qi-Ljg" eventType="touchUpInside" id="ibw-XK-Xid"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajf-Ye-bH6">
-                                <rect key="frame" x="72" y="572" width="51" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="camera"/>
-                                <connections>
-                                    <action selector="onTappedCameraButton" destination="vKy-Qi-Ljg" eventType="touchUpInside" id="A9f-d8-hER"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="XVL-Hw-hSy"/>
+                        <viewLayoutGuide key="safeArea" id="EeL-vx-gEq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zgL-VJ-ezB"/>
+                    <navigationItem key="navigationItem" id="xb7-4c-gWp"/>
                     <connections>
-                        <outlet property="photoImageView" destination="2NM-PG-MfB" id="jBf-js-Dt5"/>
+                        <outlet property="photoImageView" destination="2NM-PG-MfB" id="vpG-aZ-NIG"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UId-hE-Cg7" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ccb-PT-TiL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-300" y="793.52678571428567"/>
         </scene>
-        <!--Explore View Controller-->
-        <scene sceneID="uuB-24-BHp">
+        <!--View Controller-->
+        <scene sceneID="d3g-Ks-YPh">
             <objects>
-                <viewController id="joo-xc-OCJ" customClass="ExploreViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="W1V-xU-brd">
+                <viewController id="0dq-EF-ZiA" customClass="ViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bTa-6x-5L2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="4Ci-Y0-qrv"/>
+                        <viewLayoutGuide key="safeArea" id="2t2-Or-cIO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nRl-Cd-Bhl"/>
+                    <navigationItem key="navigationItem" id="Fj1-7P-cmK"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7ff-dC-F2o" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g5O-Ig-7gV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1048" y="794"/>
+            <point key="canvasLocation" x="-300" y="1538"/>
         </scene>
     </scenes>
     <resources>
-        <image name="bell" catalog="system" width="128" height="124"/>
-        <image name="globe" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus" catalog="system" width="128" height="113"/>

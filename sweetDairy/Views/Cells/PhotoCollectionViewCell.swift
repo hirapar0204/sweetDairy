@@ -4,13 +4,15 @@
 //
 //  Created by 丸井一輝 on 2021/05/28.
 //
-import SDWebImage
+import RealmSwift
 import UIKit
 
 class PhotoCollectionViewCell: UICollectionViewCell {
     static let identifier = "PhotoCollectionViewCell"
     
-    private let photoImageView: UIImageView = {
+    weak var showImageView: UIImageView!
+    
+     let photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
@@ -40,12 +42,21 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(with model: UserPost) {
+    /*public func configure(with model: UserPost) {
         let url = model.thumbnailImage
         photoImageView.sd_setImage(with: url, completed: nil)
     }
+ */
     
     public func configure(debug imageName: String) {
-        photoImageView.image = UIImage(named: imageName)
+        let realm = try! Realm()
+        let results = realm.objects(Data.self)
+        //URL型にキャスト
+        let fileURL = URL(string: results[0].imageURL!)
+        //パス型に変換
+        let filePath = fileURL?.path
+        showImageView.image = UIImage(contentsOfFile: filePath!)
+        
+        photoImageView.image = showImageView.image
     }
 }

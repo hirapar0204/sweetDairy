@@ -21,7 +21,7 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
         static let padding: CGFloat = 8
     }
     
-    private let gridButton : UIButton = {
+    /*private let gridButton : UIButton = {
         let button = UIButton()
         button.clipsToBounds = true
         button.tintColor = .systemBlue
@@ -37,6 +37,7 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
         return button
     }()
     
+ 
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
@@ -80,4 +81,5 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
                                     width: size,
                                     height: size)
     }
+ */
 }

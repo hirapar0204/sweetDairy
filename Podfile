@@ -8,6 +8,7 @@ target 'sweetDairy' do
   # Pods for sweetDairy
 pod 'Appirater' 
 pod 'SDWebImage'
+pod 'RealmSwift'
 
 #Firebase
 pod 'Firebase/Core'
@@ -15,6 +16,9 @@ pod 'Firebase/Storage'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Analytics'
+
+#Eureka
+pod 'Eureka'
 
 
   target 'sweetDairyTests' do

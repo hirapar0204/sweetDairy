@@ -13,23 +13,15 @@
 		647CDDD7265F9D7C00581AE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDDD6265F9D7C00581AE6 /* SceneDelegate.swift */; };
 		647CDDD9265F9D7C00581AE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDDD8265F9D7C00581AE6 /* ViewController.swift */; };
 		647CDDDC265F9D7C00581AE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 647CDDDA265F9D7C00581AE6 /* Main.storyboard */; };
-		647CDDDE265F9D8000581AE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 647CDDDD265F9D8000581AE6 /* Assets.xcassets */; };
 		647CDDE1265F9D8000581AE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 647CDDDF265F9D8000581AE6 /* LaunchScreen.storyboard */; };
 		647CDDEC265F9D8000581AE6 /* sweetDairyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDDEB265F9D8000581AE6 /* sweetDairyTests.swift */; };
 		647CDDF7265F9D8000581AE6 /* sweetDairyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDDF6265F9D8000581AE6 /* sweetDairyUITests.swift */; };
-		647CDE08265FAF4F00581AE6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE07265FAF4F00581AE6 /* LoginViewController.swift */; };
-		647CDE0A265FAF6700581AE6 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE09265FAF6700581AE6 /* RegistrationViewController.swift */; };
 		647CDE0C265FAF8500581AE6 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE0B265FAF8500581AE6 /* PostViewController.swift */; };
 		647CDE0E265FAF9A00581AE6 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE0D265FAF9A00581AE6 /* EditProfileViewController.swift */; };
 		647CDE10265FAFA900581AE6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE0F265FAFA900581AE6 /* SettingViewController.swift */; };
 		647CDE12265FAFB500581AE6 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE11265FAFB500581AE6 /* ListViewController.swift */; };
-		647CDE14265FAFCB00581AE6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE13265FAFCB00581AE6 /* SearchViewController.swift */; };
-		647CDE16265FAFEE00581AE6 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE15265FAFEE00581AE6 /* SearchResultViewController.swift */; };
 		647CDE18265FB00800581AE6 /* PostEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE17265FB00800581AE6 /* PostEditorViewController.swift */; };
-		647CDE1A265FB01A00581AE6 /* PublishPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE19265FB01A00581AE6 /* PublishPostViewController.swift */; };
-		647CDE23265FB31B00581AE6 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE22265FB31B00581AE6 /* ExploreViewController.swift */; };
 		647CDE25265FB32C00581AE6 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE24265FB32C00581AE6 /* CameraViewController.swift */; };
-		647CDE27265FB34800581AE6 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE26265FB34800581AE6 /* NotificationViewController.swift */; };
 		647CDE29265FB35C00581AE6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE28265FB35C00581AE6 /* ProfileViewController.swift */; };
 		647CDE2B26607C3800581AE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 647CDE2A26607C3800581AE6 /* GoogleService-Info.plist */; };
 		647CDE2E2660873200581AE6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE2D2660873200581AE6 /* Extension.swift */; };
@@ -45,6 +37,8 @@
 		647CDE4C2663DF2B00581AE6 /* IGFeedPostGeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE4B2663DF2B00581AE6 /* IGFeedPostGeneralTableViewCell.swift */; };
 		647CDE4E2663DF6600581AE6 /* IGFeedHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE4D2663DF6600581AE6 /* IGFeedHeaderTableViewCell.swift */; };
 		6577B9AB9C94915DA3DC3500 /* Pods_sweetDairy_sweetDairyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4A65BB5EDFF3686BCDDB63 /* Pods_sweetDairy_sweetDairyUITests.framework */; };
+		F699516B266A03210029E39F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 647CDDDD265F9D8000581AE6 /* Assets.xcassets */; };
+		F699516D266A17AB0029E39F /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699516C266A17AB0029E39F /* Data.swift */; };
 		FF88CDB13194576E8F72B56D /* Pods_sweetDairy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C15EACBCB2D7A1B1708024 /* Pods_sweetDairy.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,19 +79,12 @@
 		647CDDF2265F9D8000581AE6 /* sweetDairyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sweetDairyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		647CDDF6265F9D8000581AE6 /* sweetDairyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sweetDairyUITests.swift; sourceTree = "<group>"; };
 		647CDDF8265F9D8000581AE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		647CDE07265FAF4F00581AE6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		647CDE09265FAF6700581AE6 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		647CDE0B265FAF8500581AE6 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		647CDE0D265FAF9A00581AE6 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		647CDE0F265FAFA900581AE6 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		647CDE11265FAFB500581AE6 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		647CDE13265FAFCB00581AE6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		647CDE15265FAFEE00581AE6 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		647CDE17265FB00800581AE6 /* PostEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorViewController.swift; sourceTree = "<group>"; };
-		647CDE19265FB01A00581AE6 /* PublishPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostViewController.swift; sourceTree = "<group>"; };
-		647CDE22265FB31B00581AE6 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		647CDE24265FB32C00581AE6 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		647CDE26265FB34800581AE6 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		647CDE28265FB35C00581AE6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		647CDE2A26607C3800581AE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		647CDE2D2660873200581AE6 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -117,6 +104,7 @@
 		9B28FC6EE8585E682371A93F /* Pods-sweetDairy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sweetDairy.debug.xcconfig"; path = "Target Support Files/Pods-sweetDairy/Pods-sweetDairy.debug.xcconfig"; sourceTree = "<group>"; };
 		B72398DCC16608536B815E3B /* Pods_sweetDairyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sweetDairyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C638787A86E95882711BF6A6 /* Pods-sweetDairyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sweetDairyTests.release.xcconfig"; path = "Target Support Files/Pods-sweetDairyTests/Pods-sweetDairyTests.release.xcconfig"; sourceTree = "<group>"; };
+		F699516C266A17AB0029E39F /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +187,6 @@
 				647CDE1D265FB0D400581AE6 /* Models */,
 				647CDE1B265FB03900581AE6 /* Views */,
 				647CDE04265FAF1F00581AE6 /* Controllers */,
-				647CDDD8265F9D7C00581AE6 /* ViewController.swift */,
 				647CDDE2265F9D8000581AE6 /* Info.plist */,
 			);
 			path = sweetDairy;
@@ -235,19 +222,9 @@
 		647CDE05265FAF2B00581AE6 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				647CDE06265FAF3700581AE6 /* Onboarding */,
 				647CDE2C2660848100581AE6 /* General */,
 			);
 			path = Other;
-			sourceTree = "<group>";
-		};
-		647CDE06265FAF3700581AE6 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				647CDE07265FAF4F00581AE6 /* LoginViewController.swift */,
-				647CDE09265FAF6700581AE6 /* RegistrationViewController.swift */,
-			);
-			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		647CDE1B265FB03900581AE6 /* Views */ = {
@@ -294,9 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				6476594B2663F47100F38259 /* HomeViewController.swift */,
-				647CDE22265FB31B00581AE6 /* ExploreViewController.swift */,
 				647CDE24265FB32C00581AE6 /* CameraViewController.swift */,
-				647CDE26265FB34800581AE6 /* NotificationViewController.swift */,
 				647CDE28265FB35C00581AE6 /* ProfileViewController.swift */,
 			);
 			path = "Core Tabs";
@@ -309,10 +284,9 @@
 				647CDE0B265FAF8500581AE6 /* PostViewController.swift */,
 				647CDE0D265FAF9A00581AE6 /* EditProfileViewController.swift */,
 				647CDE11265FAFB500581AE6 /* ListViewController.swift */,
-				647CDE13265FAFCB00581AE6 /* SearchViewController.swift */,
-				647CDE15265FAFEE00581AE6 /* SearchResultViewController.swift */,
 				647CDE17265FB00800581AE6 /* PostEditorViewController.swift */,
-				647CDE19265FB01A00581AE6 /* PublishPostViewController.swift */,
+				F699516C266A17AB0029E39F /* Data.swift */,
+				647CDDD8265F9D7C00581AE6 /* ViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -458,7 +432,7 @@
 			files = (
 				647CDDE1265F9D8000581AE6 /* LaunchScreen.storyboard in Resources */,
 				647CDE2B26607C3800581AE6 /* GoogleService-Info.plist in Resources */,
-				647CDDDE265F9D8000581AE6 /* Assets.xcassets in Resources */,
+				F699516B266A03210029E39F /* Assets.xcassets in Resources */,
 				647CDDDC265F9D7C00581AE6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,12 +564,10 @@
 				647CDE3F26612EC400581AE6 /* PhotoCollectionViewCell.swift in Sources */,
 				647CDE4126612F5700581AE6 /* ProfileInfoHeaderCollectionReusableView.swift in Sources */,
 				6476594C2663F47100F38259 /* HomeViewController.swift in Sources */,
-				647CDE14265FAFCB00581AE6 /* SearchViewController.swift in Sources */,
 				647CDE0C265FAF8500581AE6 /* PostViewController.swift in Sources */,
-				647CDE23265FB31B00581AE6 /* ExploreViewController.swift in Sources */,
 				647CDE4E2663DF6600581AE6 /* IGFeedHeaderTableViewCell.swift in Sources */,
+				F699516D266A17AB0029E39F /* Data.swift in Sources */,
 				647CDE4A2663DECE00581AE6 /* IGFeedPostActionsTableViewCell.swift in Sources */,
-				647CDE08265FAF4F00581AE6 /* LoginViewController.swift in Sources */,
 				647CDDD9265F9D7C00581AE6 /* ViewController.swift in Sources */,
 				647CDE29265FB35C00581AE6 /* ProfileViewController.swift in Sources */,
 				647CDE4326612FB900581AE6 /* ProfileTabsCollectionReusableView.swift in Sources */,
@@ -609,14 +581,10 @@
 				647CDE3A2660CB9B00581AE6 /* StorageManager.swift in Sources */,
 				647CDDD7265F9D7C00581AE6 /* SceneDelegate.swift in Sources */,
 				647CDE312660C7D100581AE6 /* IGFeedPostTableViewCell.swift in Sources */,
-				647CDE16265FAFEE00581AE6 /* SearchResultViewController.swift in Sources */,
-				647CDE27265FB34800581AE6 /* NotificationViewController.swift in Sources */,
-				647CDE0A265FAF6700581AE6 /* RegistrationViewController.swift in Sources */,
 				647CDE25265FB32C00581AE6 /* CameraViewController.swift in Sources */,
 				647CDE0E265FAF9A00581AE6 /* EditProfileViewController.swift in Sources */,
 				647CDE4526623DE200581AE6 /* Models.swift in Sources */,
 				647CDE3C2660FA4D00581AE6 /* FormTableViewCell.swift in Sources */,
-				647CDE1A265FB01A00581AE6 /* PublishPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,13 +762,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 48F293G8D4;
+				DEVELOPMENT_TEAM = 66UQW3449S;
 				INFOPLIST_FILE = sweetDairy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.marui.khaki.sweetDairy;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.hirapar.sweetDairy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -814,13 +782,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 48F293G8D4;
+				DEVELOPMENT_TEAM = 66UQW3449S;
 				INFOPLIST_FILE = sweetDairy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.marui.khaki.sweetDairy;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.hirapar.sweetDairy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

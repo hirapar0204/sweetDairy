@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Eureka
 
 struct PostEditorFormModel {
     let label: String
@@ -54,6 +55,7 @@ final class PostEditorViewController: UIViewController,  UITableViewDataSource {
             section2.append(model)
         }
         models.append(section2)
+        
     }
         
     

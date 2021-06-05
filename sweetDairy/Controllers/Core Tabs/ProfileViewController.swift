@@ -6,10 +6,21 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class ProfileViewController: UIViewController {
 
     private var collectionView: UICollectionView?
+    
+    weak var showImageView: UIImageView!
+    
+     let photoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
     
     private var userPosts = [UserPost]()
     
@@ -17,6 +28,10 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureNavigationBar()
+        //let results = realm.objects(Data.self)
+       // print(results.count)
+        
+        
     
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -39,6 +54,7 @@ final class ProfileViewController: UIViewController {
         collectionView?.register(ProfileTabsCollectionReusableView.self,
                                  forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                  withReuseIdentifier: ProfileTabsCollectionReusableView.identifier)
+         
         
         collectionView?.delegate = self
         collectionView?.dataSource = self
@@ -53,18 +69,21 @@ final class ProfileViewController: UIViewController {
         collectionView?.frame = view.bounds
     }
     
+    
+    //setttingButtonでプロフィール編集
     private func configureNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"),
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(didTapSettingsButton))
     }
-    
     @objc private func didTapSettingsButton() {
         let vc = SettingViewController()
         vc.title = "Settings"
         navigationController?.pushViewController(vc, animated: true)
     }
+
+    
 }
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -75,17 +94,19 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         if section == 0 {
             return 0
         }
-        return 30
+        return 30//results.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //let model = userPosts[indexPath.row]
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier,
-                                                      for: indexPath) as! PhotoCollectionViewCell
+                                                            for: indexPath) as! PhotoCollectionViewCell
         //cell.configure(with: model)
-        cell.configure(debug: "test")
+        cell.photoImageView.image = photoImageView.image
         return cell
     }
+ 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
@@ -150,6 +171,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
                       height: 50)
         
     }
+    
 }
 
 extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate {

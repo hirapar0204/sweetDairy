@@ -1,6 +1,6 @@
 //
 //  ListViewController.swift
-//  sweetDairy
+//  sweetDairyus
 //
 //  Created by 丸井一輝 on 2021/05/27.
 //
@@ -61,7 +61,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         //go to profile of selected cell
-        let model = data[indexPath.row]
+        _ = data[indexPath.row]
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
