@@ -13,13 +13,12 @@ class ViewController: FormViewController {
 
     var image1: UIImage?
     weak var image2: UIImageView?
-    let userDefault = UserDefaults.standard
     var menu : String? = ""
     var value : String? = ""
     var store : String? = ""
     var date : String? = ""
     var star : String? = ""
-    var image : UIImage? = nil
+    var str : String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,22 +80,23 @@ class ViewController: FormViewController {
                         }.onChange{row in
                             self.star = row.value
                     }
-            +++ Section("送信")
+            +++ Section("")
                     <<< ButtonRow("フォームを送信") {row in
-                    row.title = "送信する"
+                    row.title = "投稿"
                     row.onCellSelection{[unowned self] ButtonCellOf, row in
-                        image2?.image = image1
+                        //image2?.image = image1
                         let realm = try! Realm()
-                        var documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                        let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-                        let data = Data()
+                        let pngImage = image1?.pngData()
+                        str = String(data: pngImage!, encoding: .utf8)
+                        //var documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                       // let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+                        let realmData = Data()
                         
-                        do{
+                        /*do{
                             try data.imageURL = documentDirectoryFileURL.absoluteString
                         }catch{
                             print("画像の保存に失敗しました")
                         }
-                        
                         func createLocalDataFile() {
                                 // 作成するテキストファイルの名前
                                 let fileName = "\(NSUUID().uuidString).png"
@@ -107,7 +107,6 @@ class ViewController: FormViewController {
                                     documentDirectoryFileURL = path
                                 }
                         }
-                        
                         func saveImage() {
                                 createLocalDataFile()
                                 //pngで保存
@@ -117,20 +116,23 @@ class ViewController: FormViewController {
                                 } catch {
                                     print("エラー")
                                 }
+ 
                         }
+ */
                         
                         if realm.objects(Data.self).count != 0 {
-                               data.id = realm.objects(Data.self).max(ofProperty: "id")! + 1
+                            realmData.id = realm.objects(Data.self).max(ofProperty: "id")! + 1
                         }
-                        data.menu = menu
-                        data.value = value
-                        data.store = store
-                        data.star = star
+                        realmData.menu = menu
+                        realmData.value = value
+                        realmData.store = store
+                        realmData.star = star
+                        realmData.str = str
                         //ファイルがどこにあるか見る
                         //print(Realm.Configuration.defaultConfiguration.fileURL!)
                         
                         try! realm.write {
-                            realm.add(data)
+                            realm.add(realmData)
                         }
                     }
                 }

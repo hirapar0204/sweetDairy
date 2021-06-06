@@ -21,7 +21,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     
     private let profilePhotoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
+        imageView.backgroundColor = .orange
         imageView.layer.masksToBounds = true
         return imageView
     }()
@@ -36,7 +36,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     
     private let followingButton: UIButton = {
         let button = UIButton()
-        button.setTitle("following", for: .normal)
+        button.setTitle("今週", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.backgroundColor = .secondarySystemBackground
 
@@ -45,7 +45,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     
     private let followersButton: UIButton = {
         let button = UIButton()
-        button.setTitle("followers", for: .normal)
+        button.setTitle("今月", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.backgroundColor = .secondarySystemBackground
         return button
@@ -53,7 +53,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     
     private let editProfileButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Edit Your Profile", for: .normal)
+        button.setTitle("プロフィール編集", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.backgroundColor = .secondarySystemBackground
         return button
@@ -61,7 +61,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "MK"
+        label.text = "hirapar"
         label.textColor = .label
         label.numberOfLines = 1
         return label
@@ -69,7 +69,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     
     private let bioLabel: UILabel = {
         let label = UILabel()
-        label.text = "This is the first account"
+        label.text = "sweets dairy"
         label.textColor = .label
         label.numberOfLines = 0
         return label

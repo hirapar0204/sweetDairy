@@ -19,6 +19,12 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    /*func setupCell(model: Model) {
+        showImageView.image = model.showImageView.image
+        self.backgroundColor = .blue
+    }
+ */
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         photoImageView.frame = contentView.bounds
@@ -49,7 +55,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
  */
     
     public func configure(debug imageName: String) {
-        let realm = try! Realm()
+       /* let realm = try! Realm()
         let results = realm.objects(Data.self)
         //URL型にキャスト
         let fileURL = URL(string: results[0].imageURL!)
@@ -58,5 +64,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         showImageView.image = UIImage(contentsOfFile: filePath!)
         
         photoImageView.image = showImageView.image
+ */
     }
 }

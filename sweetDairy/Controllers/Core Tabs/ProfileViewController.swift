@@ -11,7 +11,7 @@ import RealmSwift
 final class ProfileViewController: UIViewController {
 
     private var collectionView: UICollectionView?
-    
+    //let models = Model.createModels()
     weak var showImageView: UIImageView!
     
      let photoImageView: UIImageView = {
@@ -44,8 +44,8 @@ final class ProfileViewController: UIViewController {
                                           collectionViewLayout: layout)
         
         
-        collectionView?.register(PhotoCollectionViewCell.self,
-                                 forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
+        collectionView?.register(PhotoImageCollectionViewCell.self,
+                                 forCellWithReuseIdentifier: PhotoImageCollectionViewCell.identifier)
         
         collectionView?.register(ProfileInfoHeaderCollectionReusableView.self,
                                  forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -91,19 +91,36 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         return 2
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
+        /*if section == 0 {
             return 0
         }
+        return results.count
+ 
+        let realm = try! Realm()
+         let results = realm.objects(Data.self)
+         //URL型にキャスト
+         let fileURL = URL(string: results[0].imageURL!)
+         //パス型に変換
+         let filePath = fileURL?.path
+         showImageView?.image = UIImage(contentsOfFile: filePath!)
+ */
+         
+        // photoImageView.image = showImageView?.image
         return 30//results.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //let model = userPosts[indexPath.row]
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier,
-                                                            for: indexPath) as! PhotoCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoImageCollectionViewCell",
+                                                            for: indexPath) as! PhotoImageCollectionViewCell
+        cell.image = photoImageView.image
         //cell.configure(with: model)
-        cell.photoImageView.image = photoImageView.image
+        //if let cell = cell as? PhotoImageCollectionViewCell {
+        //cell.setupCell(model: models[indexPath.row])
+       // }
+        //cell.photoImageView.image = photoImageView.image
+        cell.backgroundColor = .systemOrange
         return cell
     }
  
@@ -185,7 +202,7 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
             mockData.append(UserRelationship(username: "@MK", namm: "MK", type: x % 2 == 0 ? .following : .not_following))
         }
         let vc = ListViewController(data: mockData)
-        vc.title = "Followers"
+        vc.title = "今週"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -196,14 +213,14 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
             mockData.append(UserRelationship(username: "@MK", namm: "MK", type: x % 2 == 0 ? .following : .not_following))
         }
         let vc = ListViewController(data: mockData)
-        vc.title = "Following"
+        vc.title = "今月"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func profileHeaderDidTapEditProfileButton(_ header: ProfileInfoHeaderCollectionReusableView) {
         let vc = EditProfileViewController()
-        vc.title = "Edit Profile"
+        vc.title = "プロフィール編集"
         present(UINavigationController(rootViewController: vc), animated: true)
     }
 }

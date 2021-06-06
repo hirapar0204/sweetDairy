@@ -15,7 +15,7 @@ class Data: Object {
     @objc dynamic var store: String?
     @objc dynamic var date: String?
     @objc dynamic var star: String?
-    @objc dynamic var imageURL : String?
+    @objc dynamic var str: String?
     
     open var primaryKey: String {
         return "id"
