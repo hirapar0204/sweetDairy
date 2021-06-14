@@ -19,6 +19,7 @@ pod 'Firebase/Analytics'
 
 #Eureka
 pod 'Eureka'
+pod 'ImageRow' 
 
 
   target 'sweetDairyTests' do

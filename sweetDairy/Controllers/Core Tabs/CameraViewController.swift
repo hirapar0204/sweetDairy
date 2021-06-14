@@ -17,6 +17,10 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
        // configureNavigationBar()
     }
     
+    override func viewDidLayoutSubviews() {
+            super.viewDidLayoutSubviews()
+        }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if let nextVC = segue.destination as? ViewController {
                 // ファイル名ではなく、画像データを渡す

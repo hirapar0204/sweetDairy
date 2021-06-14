@@ -8,18 +8,44 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Try View Controller-->
+        <!--View Controller-->
+        <scene sceneID="Gb9-LU-ztN">
+            <objects>
+                <viewController id="NgP-G1-Gpu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hWv-t2-gyE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="OI6-jK-sst"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tVz-Xh-Hbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3246" y="-741"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="oGB-di-Dvl">
+            <objects>
+                <viewController id="otM-UH-q06" customClass="HomeViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7ex-NN-KCT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Kwq-Sq-HkI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y8Z-XY-JVS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2494" y="-740"/>
+        </scene>
+        <!--Post Content View Controller-->
         <scene sceneID="cwd-Cf-BAf">
             <objects>
-                <viewController id="a2N-AM-jjd" customClass="tryViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="a2N-AM-jjd" customClass="PostContentViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YrE-0o-npy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ai7-Ee-TFC">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elI-ra-FmI">
                                 <rect key="frame" x="186" y="644" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -27,17 +53,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ai7-Ee-TFC">
+                                <rect key="frame" x="0.0" y="44" width="414" height="414"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iQb-bF-OnN"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                     </view>
                     <connections>
+                        <outlet property="postImageView" destination="ai7-Ee-TFC" id="yj2-EZ-07W"/>
                         <outlet property="showImageView" destination="ai7-Ee-TFC" id="OW5-gN-3YX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSY-nk-1Oq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1725" y="-746"/>
+            <point key="canvasLocation" x="-1726.0869565217392" y="-746.65178571428567"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="S0Q-Ks-j59">
@@ -47,7 +79,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.95294117647058818" green="0.59607843137254901" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="g65-I2-k65" kind="relationship" relationship="viewControllers" id="lNu-Sx-cCt"/>
@@ -59,30 +92,34 @@
             </objects>
             <point key="canvasLocation" x="-300" y="-650"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HouseViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Drw-JY-FIT"/>
+                    <navigationItem key="navigationItem" title="Home" id="Drw-JY-FIT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1826" y="794"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--My Navigation View Controller-->
         <scene sceneID="zGY-DO-8gq">
             <objects>
-                <navigationController id="HZZ-EO-SM9" sceneMemberID="viewController">
+                <navigationController id="HZZ-EO-SM9" customClass="MyNavigationViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="lEp-jF-3Jr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2m1-BT-dwl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.95294117649999999" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="VKm-Nu-Mnu" kind="relationship" relationship="rootViewController" id="ABb-gy-H73"/>
@@ -92,14 +129,18 @@
             </objects>
             <point key="canvasLocation" x="1201" y="61"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--My Navigation View Controller-->
         <scene sceneID="Ysv-uR-iMo">
             <objects>
-                <navigationController id="g65-I2-k65" sceneMemberID="viewController">
+                <navigationController id="g65-I2-k65" customClass="MyNavigationViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="IzQ-lV-pkI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VzM-W9-ICH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.95294117649999999" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jtL-HY-Axt"/>
@@ -109,14 +150,21 @@
             </objects>
             <point key="canvasLocation" x="-1826" y="61"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--My Navigation View Controller-->
         <scene sceneID="Lud-fc-lCq">
             <objects>
-                <navigationController id="gs7-DM-SX2" sceneMemberID="viewController">
+                <navigationController id="gs7-DM-SX2" customClass="MyNavigationViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="plus" catalog="system" id="QkS-6G-GBH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UKb-yL-fHC">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.95294117649999999" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="iYo-ux-vNJ" kind="relationship" relationship="rootViewController" id="sCe-dx-tBr"/>
@@ -126,7 +174,7 @@
             </objects>
             <point key="canvasLocation" x="-300" y="61"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="7GV-st-ZSZ">
             <objects>
                 <viewController id="VKm-Nu-Mnu" customClass="ProfileViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
@@ -136,13 +184,13 @@
                         <viewLayoutGuide key="safeArea" id="SbT-Op-6kj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uOB-dq-KBo"/>
+                    <navigationItem key="navigationItem" title="Profile" id="uOB-dq-KBo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ea-BG-N5b" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1200" y="794"/>
         </scene>
-        <!--Camera View Controller-->
+        <!--Photo-->
         <scene sceneID="0rh-Ui-70A">
             <objects>
                 <viewController id="iYo-ux-vNJ" customClass="CameraViewController" customModule="sweetDairy" customModuleProvider="target" sceneMemberID="viewController">
@@ -150,18 +198,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajf-Ye-bH6">
-                                <rect key="frame" x="58" y="575" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6l-DB-w5u">
+                                <rect key="frame" x="251" y="551" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="camera" image="camera"/>
-                                <connections>
-                                    <action selector="onTappedCameraButton" destination="iYo-ux-vNJ" eventType="touchUpInside" id="ZHs-yi-oCg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6l-DB-w5u">
-                                <rect key="frame" x="274" y="575" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="album" image="photo"/>
+                                <state key="normal" title="album" image="icon2"/>
                                 <connections>
                                     <action selector="onTappedAlbumButton" destination="iYo-ux-vNJ" eventType="touchUpInside" id="PJb-pr-bgG"/>
                                 </connections>
@@ -169,24 +209,34 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2NM-PG-MfB">
                                 <rect key="frame" x="0.0" y="88" width="414" height="414"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajf-Ye-bH6">
+                                <rect key="frame" x="87" y="551" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="camera" image="icon1"/>
+                                <connections>
+                                    <action selector="onTappedCameraButton" destination="iYo-ux-vNJ" eventType="touchUpInside" id="ZHs-yi-oCg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EeL-vx-gEq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.95294117649999999" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xb7-4c-gWp">
+                    <navigationItem key="navigationItem" title="Photo" id="xb7-4c-gWp">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="K81-5d-WjO">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="vkO-OY-8QN">
-                                <rect key="frame" x="163" y="742" width="88" height="43"/>
+                                <rect key="frame" x="306" y="0.5" width="88" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="詳細">
-                                    <color key="titleColor" systemColor="labelColor"/>
+                                <state key="normal" title="次へ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="0dq-EF-ZiA" kind="show" id="o9b-vO-nzl"/>
                                 </connections>
                             </button>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -215,16 +265,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera" width="256" height="256"/>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="icon1" width="256" height="256"/>
+        <image name="icon2" width="256" height="256"/>
         <image name="person" catalog="system" width="128" height="117"/>
-        <image name="photo" width="256" height="256"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

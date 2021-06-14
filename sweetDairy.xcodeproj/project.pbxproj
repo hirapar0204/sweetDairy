@@ -42,6 +42,10 @@
 		F68B2881266B836D00E1EEB7 /* PhotoImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68B2880266B836D00E1EEB7 /* PhotoImageCollectionViewCell.swift */; };
 		F699516B266A03210029E39F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 647CDDDD265F9D8000581AE6 /* Assets.xcassets */; };
 		F699516D266A17AB0029E39F /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699516C266A17AB0029E39F /* Data.swift */; };
+		F69E4FAB267732CE00216E9D /* MyNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69E4FAA267732CE00216E9D /* MyNavigationViewController.swift */; };
+		F6C4683626747D4300F523BD /* EditProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C4683526747D4300F523BD /* EditProViewController.swift */; };
+		F6EC01DB26731023005FA5CC /* HouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC01DA26731023005FA5CC /* HouseViewController.swift */; };
+		F6FBD7F42670EB8F00A21EEB /* PostContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBD7F32670EB8F00A21EEB /* PostContentViewController.swift */; };
 		FF88CDB13194576E8F72B56D /* Pods_sweetDairy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C15EACBCB2D7A1B1708024 /* Pods_sweetDairy.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +115,10 @@
 		F68B287E266B7ADA00E1EEB7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		F68B2880266B836D00E1EEB7 /* PhotoImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoImageCollectionViewCell.swift; path = ../../Controllers/Other/General/PhotoImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F699516C266A17AB0029E39F /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		F69E4FAA267732CE00216E9D /* MyNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationViewController.swift; sourceTree = "<group>"; };
+		F6C4683526747D4300F523BD /* EditProViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProViewController.swift; sourceTree = "<group>"; };
+		F6EC01DA26731023005FA5CC /* HouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseViewController.swift; sourceTree = "<group>"; };
+		F6FBD7F32670EB8F00A21EEB /* PostContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +257,7 @@
 			children = (
 				647CDDDA265F9D7C00581AE6 /* Main.storyboard */,
 				647CDDDF265F9D8000581AE6 /* LaunchScreen.storyboard */,
+				F69E4FAA267732CE00216E9D /* MyNavigationViewController.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -278,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				6476594B2663F47100F38259 /* HomeViewController.swift */,
+				F6EC01DA26731023005FA5CC /* HouseViewController.swift */,
 				647CDE24265FB32C00581AE6 /* CameraViewController.swift */,
 				647CDE28265FB35C00581AE6 /* ProfileViewController.swift */,
 				F62314BE266B99BE008F28A8 /* tryViewController.swift */,
@@ -290,11 +300,13 @@
 			children = (
 				647CDE0F265FAFA900581AE6 /* SettingViewController.swift */,
 				647CDE0B265FAF8500581AE6 /* PostViewController.swift */,
+				F6FBD7F32670EB8F00A21EEB /* PostContentViewController.swift */,
 				647CDE0D265FAF9A00581AE6 /* EditProfileViewController.swift */,
 				647CDE11265FAFB500581AE6 /* ListViewController.swift */,
 				647CDE17265FB00800581AE6 /* PostEditorViewController.swift */,
 				F699516C266A17AB0029E39F /* Data.swift */,
 				647CDDD8265F9D7C00581AE6 /* ViewController.swift */,
+				F6C4683526747D4300F523BD /* EditProViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -587,15 +599,19 @@
 				647CDE10265FAFA900581AE6 /* SettingViewController.swift in Sources */,
 				647CDE482663320D00581AE6 /* UserFollowTableViewCell.swift in Sources */,
 				647CDE18265FB00800581AE6 /* PostEditorViewController.swift in Sources */,
+				F6EC01DB26731023005FA5CC /* HouseViewController.swift in Sources */,
 				647CDE4C2663DF2B00581AE6 /* IGFeedPostGeneralTableViewCell.swift in Sources */,
 				647CDDD5265F9D7C00581AE6 /* AppDelegate.swift in Sources */,
 				647CDE12265FAFB500581AE6 /* ListViewController.swift in Sources */,
 				647CDE3A2660CB9B00581AE6 /* StorageManager.swift in Sources */,
 				647CDDD7265F9D7C00581AE6 /* SceneDelegate.swift in Sources */,
+				F69E4FAB267732CE00216E9D /* MyNavigationViewController.swift in Sources */,
 				647CDE312660C7D100581AE6 /* IGFeedPostTableViewCell.swift in Sources */,
 				647CDE25265FB32C00581AE6 /* CameraViewController.swift in Sources */,
 				647CDE0E265FAF9A00581AE6 /* EditProfileViewController.swift in Sources */,
+				F6C4683626747D4300F523BD /* EditProViewController.swift in Sources */,
 				647CDE4526623DE200581AE6 /* Models.swift in Sources */,
+				F6FBD7F42670EB8F00A21EEB /* PostContentViewController.swift in Sources */,
 				647CDE3C2660FA4D00581AE6 /* FormTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

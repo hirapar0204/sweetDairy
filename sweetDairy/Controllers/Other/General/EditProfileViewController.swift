@@ -13,8 +13,8 @@ struct EditProfileFormModel {
     var value : String?
 }
 
-final class EditProfileViewController: UIViewController,  UITableViewDataSource {
-
+final class EditProfileViewController: UIViewController,  UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(FormTableViewCell.self,
@@ -23,6 +23,7 @@ final class EditProfileViewController: UIViewController,  UITableViewDataSource 
     }()
     
     private var models = [[EditProfileFormModel]]()
+    var profileImageView: UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +40,16 @@ final class EditProfileViewController: UIViewController,  UITableViewDataSource 
                                                            style: .plain,
                                                            target: self,
                                                            action: #selector(didTapCancel))
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.tableHeaderView = createTableView()
     }
     
     private func configureModels(){
-        let section1Labels = ["Name", "Username", "Bio"]
+        let section1Labels = ["Name"]
         var section1 = [EditProfileFormModel]()
         for label in section1Labels {
             let model = EditProfileFormModel(label: label, placeholder: "Enter \(label)...", value: nil)
@@ -50,13 +57,13 @@ final class EditProfileViewController: UIViewController,  UITableViewDataSource 
         }
         models.append(section1)
         
-        let section2Labels = ["Email", "Phone", "Gender"]
-        var section2 = [EditProfileFormModel]()
-        for label in section2Labels {
-            let model = EditProfileFormModel(label: label, placeholder: "Enter \(label)...", value: nil)
-            section2.append(model)
-        }
-        models.append(section2)
+     //   let section2Labels = ["Email", "Phone", "Gender"]
+     //   var section2 = [EditProfileFormModel]()
+     //   for label in section2Labels {
+     //       let model = EditProfileFormModel(label: label, placeholder: "Enter \(label)...", value: nil)
+     //       section2.append(model)
+     //   }
+     //   models.append(section2)
     }
         
     
@@ -82,8 +89,7 @@ final class EditProfileViewController: UIViewController,  UITableViewDataSource 
         profilePhotoButton.addTarget(self,
                                      action: #selector(didTapChangeProfilePicture),
                                      for: .touchUpInside)
-        profilePhotoButton.setBackgroundImage(UIImage(systemName: "person.circle"),
-                                              for: .normal)
+        profilePhotoButton.setBackgroundImage(profileImageView?.image ,for: .normal)
         profilePhotoButton.layer.borderWidth = 1
         profilePhotoButton.layer.borderColor = UIColor.secondarySystemBackground.cgColor
         return header
@@ -119,7 +125,7 @@ final class EditProfileViewController: UIViewController,  UITableViewDataSource 
     @objc private func didTapSave(){
         dismiss(animated: true,
                 completion: nil)
-        
+        print(models)
     }
     
     @objc private func didTapCancel(){
@@ -129,21 +135,39 @@ final class EditProfileViewController: UIViewController,  UITableViewDataSource 
     }
     
     @objc private func didTapChangeProfilePicture() {
+        
         let actionSheet = UIAlertController(title: "Profile Picture",
                                             message: "Change profile picture",
                                             preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+            presentPickerController(sourceType: .camera)
             
         }))
         actionSheet.addAction(UIAlertAction(title: "Choose from Library", style: .default, handler: { _ in
-            
+            presentPickerController(sourceType: .photoLibrary)
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
         actionSheet.popoverPresentationController?.sourceView = view
         actionSheet.popoverPresentationController?.sourceRect = view.bounds
-        
+    
         present(actionSheet, animated: true)
+        
+        func presentPickerController(sourceType: UIImagePickerController.SourceType){
+            if UIImagePickerController.isSourceTypeAvailable(sourceType){
+                let picker = UIImagePickerController()
+                picker.sourceType = sourceType
+                picker.delegate = self
+                self.present(picker, animated: true, completion: nil)
+            }
+        }
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]){
+            self.dismiss(animated: true, completion: nil)
+            profileImageView?.image = info[.originalImage]as? UIImage
+            profileImageView?.contentMode = UIView.ContentMode.scaleAspectFit
+        }
+
+        tableView.tableHeaderView = createTableView()
     }
 
 }

@@ -8,6 +8,7 @@
 import Eureka
 import UIKit
 import RealmSwift
+import ImageRow
 
 class ViewController: FormViewController {
 
@@ -16,32 +17,32 @@ class ViewController: FormViewController {
     var menu : String? = ""
     var value : String? = ""
     var store : String? = ""
-    var date : String? = ""
+    var date : Date? = nil
     var star : String? = ""
-    var str : String? = ""
+    var pngImage: NSData!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        configureNavigationBar()
+        
+        //        configureNavigationBar()
         form
             +++ Section() {
-                $0.header = {
-                    let header = HeaderFooterView<UIView>(.callback({ [self] in
-                        let view = UIView(frame: CGRect(x: 0, y: 0,
-                                                        width: self.view.frame.width, height: self.view.frame.width))
-                        //view.backgroundColor = .blue
-                        let imageView = UIImageView(image:image1)
-                        let aspectScale = (image1?.size.height)! / (image1?.size.width)!
-                        let rect:CGRect = CGRect(x:0, y:0,
-                                                 width:self.view.frame.width,
-                                                 height: self.view.frame.width * aspectScale)
-                        imageView.frame = rect
-                        imageView.center = CGPoint(x:self.view.frame.width/2, y:self.view.frame.width/2)
-                        view.addSubview(imageView)
-                        return view
-                    }))
-                    return header
-                }()
+                    $0.header = {
+                        let header = HeaderFooterView<UIView>(.callback({ [self] in
+                            let view = UIView(frame: CGRect(x: 0, y: 0,
+                                                            width: self.view.frame.width, height: self.view.frame.width))
+                            let imageView = UIImageView(image:image1)
+                            let aspectScale = (image1?.size.height)! / (image1?.size.width)!
+                            let rect:CGRect = CGRect(x:0, y:0,
+                                                     width:self.view.frame.width,
+                                                     height: self.view.frame.width * aspectScale)
+                            imageView.frame = rect
+                            imageView.center = CGPoint(x:self.view.frame.width/2, y:self.view.frame.width/2)
+                            view.addSubview(imageView)
+                            return view
+                        }))
+                        return header
+                    }()
             }
             
             <<< TextRow() {
@@ -70,6 +71,11 @@ class ViewController: FormViewController {
                     }.onChange() { row in
                         // 現在のチェック状態
                         print(row.value!)
+              //          if let value1 = row.value {
+              //                  let dateFormatter = DateFormatter()
+              //                  dateFormatter.dateFormat = "yyyy-MM-dd"
+                            self.date = row.value//Formatter.string(from: value1)
+                       // }
                 }
         
             <<< PickerInlineRow<String>("評価") { (row : PickerInlineRow<String>) -> Void in
@@ -86,11 +92,13 @@ class ViewController: FormViewController {
                     row.onCellSelection{[unowned self] ButtonCellOf, row in
                         //image2?.image = image1
                         let realm = try! Realm()
-                        let pngImage = image1?.pngData()
-                        str = String(data: pngImage!, encoding: .utf8)
+                        let pngImage = NSData(data: (image1?.jpegData(compressionQuality: 0.9)!)!)
                         //var documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
                        // let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-                        let realmData = Data()
+                        let realmData = photoData()
+                        
+                        
+                        
                         
                         /*do{
                             try data.imageURL = documentDirectoryFileURL.absoluteString
@@ -120,16 +128,17 @@ class ViewController: FormViewController {
                         }
  */
                         
-                        if realm.objects(Data.self).count != 0 {
-                            realmData.id = realm.objects(Data.self).max(ofProperty: "id")! + 1
+                        if realm.objects(photoData.self).count != 0 {
+                            realmData.id = realm.objects(photoData.self).max(ofProperty: "id")! + 1
                         }
                         realmData.menu = menu
                         realmData.value = value
                         realmData.store = store
+                        realmData.date = date
                         realmData.star = star
-                        realmData.str = str
+                        realmData.pngImage = pngImage
                         //ファイルがどこにあるか見る
-                        //print(Realm.Configuration.defaultConfiguration.fileURL!)
+                      //  print(Realm.Configuration.defaultConfiguration.fileURL!)
                         
                         try! realm.write {
                             realm.add(realmData)

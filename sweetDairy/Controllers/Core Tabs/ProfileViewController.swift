@@ -8,11 +8,11 @@
 import UIKit
 import RealmSwift
 
-final class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController{
 
     private var collectionView: UICollectionView?
-    //let models = Model.createModels()
-    weak var showImageView: UIImageView!
+    var results: Results<photoData>!
+
     
      let photoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -23,16 +23,17 @@ final class ProfileViewController: UIViewController {
     
     
     private var userPosts = [UserPost]()
+    let realm = try! Realm()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        configureNavigationBar()
-        //let results = realm.objects(Data.self)
-       // print(results.count)
+        //configureNavigationBar()
         
+        //UITabBar.appearance().backgroundColor = .red
         
-    
+        results = realm.objects(photoData.self).sorted(byKeyPath: "id", ascending: false)
+        //どこにコンテンツをどのように配置するのかを示す
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
@@ -67,10 +68,14 @@ final class ProfileViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView?.frame = view.bounds
+        //背景色
+    
+        collectionView?.backgroundColor = .clear
     }
     
     
     //setttingButtonでプロフィール編集
+    /*
     private func configureNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"),
                                                             style: .done,
@@ -82,31 +87,18 @@ final class ProfileViewController: UIViewController {
         vc.title = "Settings"
         navigationController?.pushViewController(vc, animated: true)
     }
+ */
 
     
 }
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        /*if section == 0 {
-            return 0
-        }
         return results.count
- 
-        let realm = try! Realm()
-         let results = realm.objects(Data.self)
-         //URL型にキャスト
-         let fileURL = URL(string: results[0].imageURL!)
-         //パス型に変換
-         let filePath = fileURL?.path
-         showImageView?.image = UIImage(contentsOfFile: filePath!)
- */
-         
-        // photoImageView.image = showImageView?.image
-        return 30//results.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -114,13 +106,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoImageCollectionViewCell",
                                                             for: indexPath) as! PhotoImageCollectionViewCell
-        cell.image = photoImageView.image
-        //cell.configure(with: model)
-        //if let cell = cell as? PhotoImageCollectionViewCell {
-        //cell.setupCell(model: models[indexPath.row])
-       // }
-        //cell.photoImageView.image = photoImageView.image
-        cell.backgroundColor = .systemOrange
+        cell.photoImageView.image = UIImage(data: results[indexPath.row].pngImage as Data)
         return cell
     }
  
@@ -129,7 +115,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         collectionView.deselectItem(at: indexPath, animated: true)
         
         //let model = userPosts[indexPath.row]
-        let user = User(username: "MK",
+        /*let user = User(username: "MK",
                         bio: "",
                         name: (first: "", last: ""),
                         profilePhoto: URL(string: "https://www.google.com")!,
@@ -147,9 +133,11 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
                             createdDate: Date(),
                             taggedUsers: [],
                             owner: user)
-        let vc = PostViewController(model: post)
-        //vc.title = post.postType.rawValue
+    */
+        let vc = PostContentViewController()//PostViewController(model: post)
+        vc.title = "Post"
         vc.navigationItem.largeTitleDisplayMode = .never
+        vc.cellNumber = results.count - indexPath.row - 1
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -219,7 +207,7 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     }
     
     func profileHeaderDidTapEditProfileButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = EditProfileViewController()
+        let vc = EditProViewController()
         vc.title = "プロフィール編集"
         present(UINavigationController(rootViewController: vc), animated: true)
     }

@@ -48,13 +48,13 @@ final class PostEditorViewController: UIViewController,  UITableViewDataSource {
         }
         models.append(section1)
         
-        let section2Labels = ["Email", "Phone", "Gender"]
-        var section2 = [EditProfileFormModel]()
-        for label in section2Labels {
-            let model = EditProfileFormModel(label: label, placeholder: "Enter \(label)...", value: nil)
-            section2.append(model)
-        }
-        models.append(section2)
+        //let section2Labels = ["Email", "Phone", "Gender"]
+        //var section2 = [EditProfileFormModel]()
+        //for label in section2Labels {
+        //    let model = EditProfileFormModel(label: label, placeholder: "Enter \(label)...", value: nil)
+        //    section2.append(model)
+        //}
+        //models.append(section2)
         
     }
         
