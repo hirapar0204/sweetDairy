@@ -25,6 +25,8 @@ final class IGFeedPostTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         postImageView.frame = contentView.bounds
+        
+        
     }
     
     override func prepareForReuse() {
@@ -48,3 +50,5 @@ final class IGFeedPostTableViewCell: UITableViewCell {
     }
     
 }
+
+

@@ -30,16 +30,25 @@ class HouseViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(tableView)
+        results = realm.objects(photoData.self).sorted(byKeyPath: "id", ascending: false)
+        number = results.count
+        
+        tableView.separatorColor = .white
         tableView.frame = view.bounds
         tableView.delegate = self
         tableView.dataSource = self
         
-        results = realm.objects(photoData.self).sorted(byKeyPath: "id", ascending: false)
-        number = results.count
+        view.addSubview(tableView)
         
         
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+       // print(Realm.Configuration.defaultConfiguration.fileURL!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+        
     }
     
     
@@ -91,3 +100,4 @@ extension HouseViewController: UITableViewDelegate, UITableViewDataSource {
     
    
 }
+

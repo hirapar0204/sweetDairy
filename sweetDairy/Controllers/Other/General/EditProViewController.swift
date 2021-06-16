@@ -65,7 +65,8 @@ class EditProViewController: FormViewController {
                             realm.delete(old)
                             realm.add(realmData)
                         }
-                        //realm.delete(realmData)
+                        self.dismiss(animated: true, completion: nil)
+                        
                     }
             }
             }

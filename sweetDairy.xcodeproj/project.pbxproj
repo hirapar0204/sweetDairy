@@ -37,6 +37,7 @@
 		647CDE4C2663DF2B00581AE6 /* IGFeedPostGeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE4B2663DF2B00581AE6 /* IGFeedPostGeneralTableViewCell.swift */; };
 		647CDE4E2663DF6600581AE6 /* IGFeedHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CDE4D2663DF6600581AE6 /* IGFeedHeaderTableViewCell.swift */; };
 		6577B9AB9C94915DA3DC3500 /* Pods_sweetDairy_sweetDairyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4A65BB5EDFF3686BCDDB63 /* Pods_sweetDairy_sweetDairyUITests.framework */; };
+		F622312A2678DC2600916BF0 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62231292678DC2600916BF0 /* LaunchViewController.swift */; };
 		F62314BF266B99BE008F28A8 /* tryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62314BE266B99BE008F28A8 /* tryViewController.swift */; };
 		F68B287F266B7ADA00E1EEB7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68B287E266B7ADA00E1EEB7 /* Model.swift */; };
 		F68B2881266B836D00E1EEB7 /* PhotoImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68B2880266B836D00E1EEB7 /* PhotoImageCollectionViewCell.swift */; };
@@ -111,6 +112,7 @@
 		9B28FC6EE8585E682371A93F /* Pods-sweetDairy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sweetDairy.debug.xcconfig"; path = "Target Support Files/Pods-sweetDairy/Pods-sweetDairy.debug.xcconfig"; sourceTree = "<group>"; };
 		B72398DCC16608536B815E3B /* Pods_sweetDairyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sweetDairyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C638787A86E95882711BF6A6 /* Pods-sweetDairyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sweetDairyTests.release.xcconfig"; path = "Target Support Files/Pods-sweetDairyTests/Pods-sweetDairyTests.release.xcconfig"; sourceTree = "<group>"; };
+		F62231292678DC2600916BF0 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		F62314BE266B99BE008F28A8 /* tryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tryViewController.swift; sourceTree = "<group>"; };
 		F68B287E266B7ADA00E1EEB7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		F68B2880266B836D00E1EEB7 /* PhotoImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoImageCollectionViewCell.swift; path = ../../Controllers/Other/General/PhotoImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -256,8 +258,9 @@
 			isa = PBXGroup;
 			children = (
 				647CDDDA265F9D7C00581AE6 /* Main.storyboard */,
-				647CDDDF265F9D8000581AE6 /* LaunchScreen.storyboard */,
 				F69E4FAA267732CE00216E9D /* MyNavigationViewController.swift */,
+				647CDDDF265F9D8000581AE6 /* LaunchScreen.storyboard */,
+				F62231292678DC2600916BF0 /* LaunchViewController.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				F68B287F266B7ADA00E1EEB7 /* Model.swift in Sources */,
 				647CDE2E2660873200581AE6 /* Extension.swift in Sources */,
 				647CDE10265FAFA900581AE6 /* SettingViewController.swift in Sources */,
+				F622312A2678DC2600916BF0 /* LaunchViewController.swift in Sources */,
 				647CDE482663320D00581AE6 /* UserFollowTableViewCell.swift in Sources */,
 				647CDE18265FB00800581AE6 /* PostEditorViewController.swift in Sources */,
 				F6EC01DB26731023005FA5CC /* HouseViewController.swift in Sources */,
@@ -790,7 +794,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 2.1;
 				DEVELOPMENT_TEAM = 66UQW3449S;
 				INFOPLIST_FILE = sweetDairy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -811,7 +815,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 2.1;
 				DEVELOPMENT_TEAM = 66UQW3449S;
 				INFOPLIST_FILE = sweetDairy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

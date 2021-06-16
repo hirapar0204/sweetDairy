@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +12,41 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_cake" translatesAutoresizingMaskIntoConstraints="NO" id="Pzy-Q1-SNb">
+                                <rect key="frame" x="122" y="363" width="170" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="qVl-C8-40A"/>
+                                    <constraint firstAttribute="height" constant="170" id="rPd-Da-1aT"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title3" translatesAutoresizingMaskIntoConstraints="NO" id="hxh-g7-3us">
+                                <rect key="frame" x="75" y="273.5" width="264" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="89" id="IcO-vd-Xrz"/>
+                                    <constraint firstAttribute="width" constant="264" id="uqE-hA-tvZ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.96950525050000003" green="0.71186584230000005" blue="0.1408542693" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Pzy-Q1-SNb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="elf-ky-5tG"/>
+                            <constraint firstItem="Pzy-Q1-SNb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="erH-9f-qrF"/>
+                            <constraint firstItem="hxh-g7-3us" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-130" id="id7-Jm-eLb"/>
+                            <constraint firstItem="hxh-g7-3us" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="yd8-gW-W6E"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="44.927536231884062" y="105.80357142857143"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_cake" width="256" height="256"/>
+        <image name="title3" width="396" height="133"/>
+    </resources>
 </document>

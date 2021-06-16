@@ -31,15 +31,32 @@ class ViewController: FormViewController {
                         let header = HeaderFooterView<UIView>(.callback({ [self] in
                             let view = UIView(frame: CGRect(x: 0, y: 0,
                                                             width: self.view.frame.width, height: self.view.frame.width))
-                            let imageView = UIImageView(image:image1)
-                            let aspectScale = (image1?.size.height)! / (image1?.size.width)!
-                            let rect:CGRect = CGRect(x:0, y:0,
-                                                     width:self.view.frame.width,
-                                                     height: self.view.frame.width * aspectScale)
-                            imageView.frame = rect
-                            imageView.center = CGPoint(x:self.view.frame.width/2, y:self.view.frame.width/2)
-                            view.addSubview(imageView)
-                            return view
+                            
+                            let size1: CGFloat = (image1?.size.height)!
+                            let size2: CGFloat = (image1?.size.width)!
+                            
+                            if size2 > size1{
+                            
+                                let imageView = UIImageView(image:image1)
+                                let aspectScale = (image1?.size.height)! / (image1?.size.width)!
+                                let rect:CGRect = CGRect(x:0, y:0,
+                                                         width:self.view.frame.width,
+                                                         height: self.view.frame.width * aspectScale)
+                                imageView.frame = rect
+                                imageView.center = CGPoint(x:self.view.frame.width/2, y:self.view.frame.width/2)
+                                view.addSubview(imageView)
+                                return view
+                            }else{
+                                let imageView = UIImageView(image:image1)
+                                let aspectScale = (image1?.size.width)! / (image1?.size.height)!
+                                let rect:CGRect = CGRect(x:0, y:0,
+                                                         width:self.view.frame.width * aspectScale,
+                                                         height: self.view.frame.width )
+                                imageView.frame = rect
+                                imageView.center = CGPoint(x:self.view.frame.width/2, y:self.view.frame.width/2)
+                                view.addSubview(imageView)
+                                return view
+                            }
                         }))
                         return header
                     }()
@@ -143,6 +160,16 @@ class ViewController: FormViewController {
                         try! realm.write {
                             realm.add(realmData)
                         }
+                        let alert = UIAlertController(title: "投稿完了", message: "", preferredStyle: .alert)
+                        //ここから追加
+                        let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+                            self.dismiss(animated: true, completion: nil)
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                        alert.addAction(ok)
+                        //ここまで追加
+                        present(alert, animated: true, completion: nil)
+                        
                     }
                 }
     }
@@ -151,6 +178,7 @@ class ViewController: FormViewController {
         vc.title = "Settings"
         navigationController?.pushViewController(vc, animated: true)
     }
+    
     
 
     

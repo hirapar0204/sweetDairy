@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-final class ProfileViewController: UIViewController{
+final class ProfileViewController: UIViewController, UIGestureRecognizerDelegate{
 
     private var collectionView: UICollectionView?
     var results: Results<photoData>!
@@ -25,12 +25,8 @@ final class ProfileViewController: UIViewController{
     private var userPosts = [UserPost]()
     let realm = try! Realm()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //configureNavigationBar()
-        
-        //UITabBar.appearance().backgroundColor = .red
         
         results = realm.objects(photoData.self).sorted(byKeyPath: "id", ascending: false)
         //どこにコンテンツをどのように配置するのかを示す
@@ -52,9 +48,9 @@ final class ProfileViewController: UIViewController{
                                  forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                  withReuseIdentifier: ProfileInfoHeaderCollectionReusableView.identifier)
         
-        collectionView?.register(ProfileTabsCollectionReusableView.self,
-                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                 withReuseIdentifier: ProfileTabsCollectionReusableView.identifier)
+     //   collectionView?.register(ProfileTabsCollectionReusableView.self,
+     //                            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+     //                            withReuseIdentifier: ProfileTabsCollectionReusableView.identifier)
          
         
         collectionView?.delegate = self
@@ -65,6 +61,14 @@ final class ProfileViewController: UIViewController{
         view.addSubview(collectionView)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.viewDidLoad()
+        collectionView?.reloadData()
+        
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView?.frame = view.bounds
@@ -72,6 +76,7 @@ final class ProfileViewController: UIViewController{
     
         collectionView?.backgroundColor = .clear
     }
+    
     
     
     //setttingButtonでプロフィール編集
@@ -147,7 +152,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             return UICollectionReusableView()
         }
         
-        if indexPath.section == 1 {
+   /*     if indexPath.section == 1 {
             let tabControlHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                          withReuseIdentifier: ProfileTabsCollectionReusableView.identifier,
                                                                          for: indexPath) as!
@@ -155,6 +160,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             tabControlHeader.delegate = self
             return tabControlHeader
         }
+ */
         
         let profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                      withReuseIdentifier:
