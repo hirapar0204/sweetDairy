@@ -9,13 +9,17 @@ import UIKit
 class CameraViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var photoImageView: UIImageView!
-   // @IBOutlet let nextButton: UIButton!
     var photo: UIImage!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       // configureNavigationBar()
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "photo2")
+        imageView.image = image
+        self.navigationItem.titleView = imageView
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,34 +61,24 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         super.viewWillAppear(animated)
         photoImageView.image = nil
     }
+    
  
-    
-    /*
-    @IBAction func touchButton(){
-        if photoImageView == nil{
-            let alert = UIAlertController(title: "写真を追加してください", message: "", preferredStyle: .alert)
-            //ここから追加
-            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
-                self.dismiss(animated: true, completion: nil)
-            }
-            alert.addAction(ok)
-            //ここまで追加
-            present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    func gobutton(){
-        
-    }
- */
     
     
     @IBAction func onTappedCameraButton(){
-        presentPickerController(sourceType: .camera)
+        //presentPickerController(sourceType:.camera)
+        let alert = UIAlertController(title: "現在、カメラは使えません", message: "", preferredStyle: .alert)
+        //ここから追加
+        let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(ok)
+        //ここまで追加
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func onTappedAlbumButton(){
-        presentPickerController(sourceType: .photoLibrary)
+        presentPickerController(sourceType:.photoLibrary)
         
     }
     
@@ -99,11 +93,15 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]){
         self.dismiss(animated: true, completion: nil)
-        photoImageView.image = info[.originalImage]as? UIImage
+        photoImageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+            //info[.originalImage]as? UIImage
         photoImageView.contentMode = UIView.ContentMode.scaleAspectFit
+        
+        //self.dismiss(animated: true, completion: nil)
         
     }
     
+    /*
     func resize(photo: UIImage, width: Double) -> UIImage {
             
         // オリジナル画像のサイズからアスペクト比を計算
@@ -119,21 +117,8 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         UIGraphicsEndImageContext()
         return resizedImage!
     }
-    
-    /*private func configureNavigationBar() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image:UIImage(systemName:"gear"),
-                                                            style: .done,
-                                                            target: self,
-                                                            action: #selector(didTapSettingsButton))
-    }
-    
-    @objc private func didTapSettingsButton() {
-        let vc = UIStoryboard(name: "ExploreViewController", bundle: nil).instantiateInitialViewController() as! ExploreViewController
-        vc.title = "Settings"
-        //画面移動
-        navigationController?.pushViewController(vc, animated: true)
-    }
  */
     
+ 
 
 }

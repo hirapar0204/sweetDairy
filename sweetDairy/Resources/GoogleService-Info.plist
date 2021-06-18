@@ -13,21 +13,21 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>app.marui.khaki.sweetDairy</string>
+	<string>jp.hirapar.sweetDairy</string>
 	<key>PROJECT_ID</key>
 	<string>sweetdairy-7b2fa</string>
 	<key>STORAGE_BUCKET</key>
 	<string>sweetdairy-7b2fa.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:645249203204:ios:93d99a3c3e4e01006a0951</string>
 </dict>

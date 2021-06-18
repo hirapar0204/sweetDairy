@@ -7,10 +7,12 @@
 
 import UIKit
 import RealmSwift
+import SDWebImage
 
-final class ProfileViewController: UIViewController, UIGestureRecognizerDelegate{
+final class ProfileViewController: UIViewController{
 
     private var collectionView: UICollectionView?
+  //  private let refreshControl = UIRefreshControl()
     var results: Results<photoData>!
 
     
@@ -22,11 +24,20 @@ final class ProfileViewController: UIViewController, UIGestureRecognizerDelegate
     }()
     
     
-    private var userPosts = [UserPost]()
+  //  private var userPosts = [UserPost]()
     let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "profile1")
+        imageView.image = image
+        self.navigationItem.titleView = imageView
+        
+     //   collectionView?.refreshControl = refreshControl
+     //   refreshControl.addTarget(self, action: #selector(ProfileViewController.refresh(sender:)), for: .valueChanged)
         
         results = realm.objects(photoData.self).sorted(byKeyPath: "id", ascending: false)
         //どこにコンテンツをどのように配置するのかを示す
@@ -48,17 +59,13 @@ final class ProfileViewController: UIViewController, UIGestureRecognizerDelegate
                                  forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                  withReuseIdentifier: ProfileInfoHeaderCollectionReusableView.identifier)
         
-     //   collectionView?.register(ProfileTabsCollectionReusableView.self,
-     //                            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-     //                            withReuseIdentifier: ProfileTabsCollectionReusableView.identifier)
-         
-        
         collectionView?.delegate = self
         collectionView?.dataSource = self
         guard let collectionView = collectionView else {
            return
         }
         view.addSubview(collectionView)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,9 +80,13 @@ final class ProfileViewController: UIViewController, UIGestureRecognizerDelegate
         super.viewDidLayoutSubviews()
         collectionView?.frame = view.bounds
         //背景色
-    
-        collectionView?.backgroundColor = .clear
+        collectionView?.backgroundColor = .white//.clear
     }
+    
+   // @objc func refresh(sender: UIRefreshControl) {
+   //       self.viewDidLoad()
+   //     collectionView?.reloadData()
+   // }
     
     
     
@@ -103,7 +114,11 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return results.count
+      //  if results.count <= 9 {
+      //      return 9
+      //  }else{
+            return results.count
+      //  }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -171,6 +186,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         return profileHeader
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
@@ -187,11 +203,11 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
 
 extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate {
     func profileHeaderDidTapPostsButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        collectionView?.scrollToItem(at: IndexPath(row: 0, section: 1), at: .top, animated: true)
+     //   collectionView?.scrollToItem(at: IndexPath(row: 0, section: 1), at: .top, animated: true)
     }
     
-    func profileHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        var mockData = [UserRelationship]()
+   func profileHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderCollectionReusableView) {
+       /* var mockData = [UserRelationship]()
         for x in 0..<10 {
             mockData.append(UserRelationship(username: "@MK", namm: "MK", type: x % 2 == 0 ? .following : .not_following))
         }
@@ -199,10 +215,11 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
         vc.title = "今週"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
+ */
     }
     
     func profileHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        var mockData = [UserRelationship]()
+      /*  var mockData = [UserRelationship]()
         for x in 0..<10 {
             mockData.append(UserRelationship(username: "@MK", namm: "MK", type: x % 2 == 0 ? .following : .not_following))
         }
@@ -210,7 +227,9 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
         vc.title = "今月"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
+ */
     }
+ 
     
     func profileHeaderDidTapEditProfileButton(_ header: ProfileInfoHeaderCollectionReusableView) {
         let vc = EditProViewController()
@@ -219,11 +238,32 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     }
 }
 
-extension ProfileViewController: ProfileTabsCollectionReusableViewDelegate {
+/*extension ProfileViewController: ProfileTabsCollectionReusableViewDelegate {
     func didTapGridButtonTab() {
         
     }
     func didTapTaggedButtonTab() {
         
+    }
+}
+ */
+ 
+
+extension UIImageView {
+
+    func setImageBySDWebImage1(with url: URL) {
+
+        self.sd_setImage(with: url) { [weak self] image, error, _, _ in
+            // Success
+            if error == nil, let image = image {
+                self?.image = image
+
+            // Failure
+            } else {
+                // error handling
+
+            }
+        }
+
     }
 }

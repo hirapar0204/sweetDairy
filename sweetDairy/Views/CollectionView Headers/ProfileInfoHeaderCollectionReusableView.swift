@@ -32,7 +32,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         let imageView = UIImageView()
         //let imageView = UIImage(data: prof[0].pngImage as Data)
         //let imageView1 = UIImageView(image:imageView)//UIImageView()
-        imageView.backgroundColor = .gray
+        imageView.backgroundColor = .white
         imageView.layer.masksToBounds = true
         return imageView
     }()
@@ -115,7 +115,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         let currentDateComponents = calendar.components([.yearForWeekOfYear, .weekOfYear ], from: date as Date)
         let startOfWeek = calendar.date(from: currentDateComponents)!
         let dateSun = (startOfWeek + 32400)
-        print(dateSun)
+        //print(dateSun)
      
 
         
@@ -134,6 +134,8 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         }else{
         let imageView = UIImage(data: profile[0].pngImage as Data)
         let imageView1 = UIImageView(image:imageView)
+            imageView1.contentMode = .scaleAspectFill
+            imageView1.clipsToBounds = true
         profilePhotoImageView = imageView1
         }
         
@@ -186,7 +188,9 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        backgroundColor = .systemGray
+        backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 0/255, alpha: 1)
+        //UIColor.gray.withAlphaComponent(0.30)
+        //isOpaque = false//.systemGray
         
         let profilePhotoSize = width/4
         profilePhotoImageView.frame = CGRect(

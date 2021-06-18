@@ -7,14 +7,12 @@
 
 import UIKit
 import RealmSwift
+import SDWebImage
 
-struct HouseFeedRenderViewModel {
-    let post: PostRenderViewModel
-}
 
 class HouseViewController: UIViewController{
 
-    private var feedRenderModels = [HouseFeedRenderViewModel]()
+    private let refreshControl = UIRefreshControl()
     
     var results: Results<photoData>!
     let realm = try! Realm()
@@ -30,8 +28,19 @@ class HouseViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "sweetsDairy1")
+        imageView.image = image
+        self.navigationItem.titleView = imageView
+ 
+        
         results = realm.objects(photoData.self).sorted(byKeyPath: "id", ascending: false)
         number = results.count
+        
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(HouseViewController.refresh(sender:)), for: .valueChanged)
         
         tableView.separatorColor = .white
         tableView.frame = view.bounds
@@ -47,7 +56,7 @@ class HouseViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.reloadData()
+        //tableView.reloadData()
         
     }
     
@@ -55,7 +64,15 @@ class HouseViewController: UIViewController{
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
+        tableView.backgroundColor = .white
     }
+    
+    
+    @objc func refresh(sender: UIRefreshControl) {
+        tableView.reloadData()
+        refreshControl.endRefreshing()
+       }
+
     
 }
 
@@ -99,5 +116,24 @@ extension HouseViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
    
+}
+
+extension UIImageView {
+
+    func setImageBySDWebImage(with url: URL) {
+
+        self.sd_setImage(with: url) { [weak self] image, error, _, _ in
+            // Success
+            if error == nil, let image = image {
+                self?.image = image
+
+            // Failure
+            } else {
+                // error handling
+
+            }
+        }
+
+    }
 }
 

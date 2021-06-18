@@ -24,6 +24,15 @@ class ViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "Edit")
+        imageView.image = image
+        self.navigationItem.titleView = imageView
+        self.navigationController?.navigationBar.barTintColor = .white
+        
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 176/255, blue: 0/255, alpha: 1)
+        
         //        configureNavigationBar()
         form
             +++ Section() {
@@ -108,78 +117,83 @@ class ViewController: FormViewController {
                     row.title = "投稿"
                     row.onCellSelection{[unowned self] ButtonCellOf, row in
                         //image2?.image = image1
-                        let realm = try! Realm()
-                        let pngImage = NSData(data: (image1?.jpegData(compressionQuality: 0.9)!)!)
-                        //var documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                       // let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-                        let realmData = photoData()
                         
+                        if(menu == nil || value == nil || store == nil || date == nil || star == nil){
+                            let alert = UIAlertController(title: "詳細を入力してください", message: "", preferredStyle: .alert)
+                            //ここから追加
+                            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                            alert.addAction(ok)
+                            //ここまで追加
+                            present(alert, animated: true, completion: nil)
+                        }else{
                         
-                        
-                        
-                        /*do{
-                            try data.imageURL = documentDirectoryFileURL.absoluteString
-                        }catch{
-                            print("画像の保存に失敗しました")
+                            let realm = try! Realm()
+                            let pngImage = NSData(data: (image1?.jpegData(compressionQuality: 0.9)!)!)
+                            //var documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                           // let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+                            let realmData = photoData()
+                            
+                            
+                            
+                            
+                            /*do{
+                                try data.imageURL = documentDirectoryFileURL.absoluteString
+                            }catch{
+                                print("画像の保存に失敗しました")
+                            }
+                            func createLocalDataFile() {
+                                    // 作成するテキストファイルの名前
+                                    let fileName = "\(NSUUID().uuidString).png"
+                                    // DocumentディレクトリのfileURL
+                                    if documentDirectoryFileURL != nil {
+                                        // ディレクトリのパスにファイル名をつなげてファイルのフルパス
+                                        let path = documentDirectoryFileURL.appendingPathComponent(fileName)
+                                        documentDirectoryFileURL = path
+                                    }
+                            }
+                            func saveImage() {
+                                    createLocalDataFile()
+                                    //pngで保存
+                                    let pngImageData = image2?.image?.pngData()
+                                    do {
+                                        try pngImageData!.write(to: documentDirectoryFileURL)
+                                    } catch {
+                                        print("エラー")
+                                    }
+     
+                            }
+     */
+                            
+                            if realm.objects(photoData.self).count != 0 {
+                                realmData.id = realm.objects(photoData.self).max(ofProperty: "id")! + 1
+                            }
+                            realmData.menu = menu
+                            realmData.value = value
+                            realmData.store = store
+                            realmData.date = date
+                            realmData.star = star
+                            realmData.pngImage = pngImage
+                            //ファイルがどこにあるか見る
+                          //  print(Realm.Configuration.defaultConfiguration.fileURL!)
+                            
+                            try! realm.write {
+                                realm.add(realmData)
+                            }
+                            let alert = UIAlertController(title: "投稿完了", message: "", preferredStyle: .alert)
+                            //ここから追加
+                            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+                                self.dismiss(animated: true, completion: nil)
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                            alert.addAction(ok)
+                            //ここまで追加
+                            present(alert, animated: true, completion: nil)
+                            
                         }
-                        func createLocalDataFile() {
-                                // 作成するテキストファイルの名前
-                                let fileName = "\(NSUUID().uuidString).png"
-                                // DocumentディレクトリのfileURL
-                                if documentDirectoryFileURL != nil {
-                                    // ディレクトリのパスにファイル名をつなげてファイルのフルパス
-                                    let path = documentDirectoryFileURL.appendingPathComponent(fileName)
-                                    documentDirectoryFileURL = path
-                                }
-                        }
-                        func saveImage() {
-                                createLocalDataFile()
-                                //pngで保存
-                                let pngImageData = image2?.image?.pngData()
-                                do {
-                                    try pngImageData!.write(to: documentDirectoryFileURL)
-                                } catch {
-                                    print("エラー")
-                                }
- 
-                        }
- */
-                        
-                        if realm.objects(photoData.self).count != 0 {
-                            realmData.id = realm.objects(photoData.self).max(ofProperty: "id")! + 1
-                        }
-                        realmData.menu = menu
-                        realmData.value = value
-                        realmData.store = store
-                        realmData.date = date
-                        realmData.star = star
-                        realmData.pngImage = pngImage
-                        //ファイルがどこにあるか見る
-                      //  print(Realm.Configuration.defaultConfiguration.fileURL!)
-                        
-                        try! realm.write {
-                            realm.add(realmData)
-                        }
-                        let alert = UIAlertController(title: "投稿完了", message: "", preferredStyle: .alert)
-                        //ここから追加
-                        let ok = UIAlertAction(title: "OK", style: .default) { (action) in
-                            self.dismiss(animated: true, completion: nil)
-                            self.navigationController?.popViewController(animated: true)
-                        }
-                        alert.addAction(ok)
-                        //ここまで追加
-                        present(alert, animated: true, completion: nil)
-                        
-                    }
+                }
                 }
     }
-    @objc private func didTapSettingsButton() {
-        let vc = SettingViewController()
-        vc.title = "Settings"
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    
-
     
 }

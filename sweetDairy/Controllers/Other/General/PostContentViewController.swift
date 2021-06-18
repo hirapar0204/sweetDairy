@@ -26,6 +26,15 @@ class PostContentViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "post5")
+        imageView.image = image
+        self.navigationItem.titleView = imageView
+        
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 176/255, blue: 0/255, alpha: 1)
+        
         results = realm.objects(photoData.self)
      //   dele = realm.objects(photoData.self).filter("id == cellNumber")
        // postImg? = UIImage(data: results[cellNumber!].pngImage as Data)!
@@ -76,23 +85,14 @@ class PostContentViewController: FormViewController {
             
             <<< TextRow() {
                 $0.title = "メニュー:   \(results[cellNumber!].menu ?? "")"
-                $0.value = ""
-                }.onChange{row in
-                   // self.menu = row.value
             }
             
             <<< TextRow() {
                 $0.title = "価格:          \(results[cellNumber!].value ?? "")"
-                $0.value = ""
-                }.onChange{row in
-                   // self.value = row.value
             }
             
             <<< TextRow() {
                 $0.title = "店名:          \(results[cellNumber!].store ?? "")"
-                $0.value = ""
-                }.onChange{row in
-                   // self.store = row.value
             }
             
             <<< DateRow("") {

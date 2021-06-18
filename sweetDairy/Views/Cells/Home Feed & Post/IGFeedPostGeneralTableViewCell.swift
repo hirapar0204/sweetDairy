@@ -5,6 +5,7 @@
 //  Created by 丸井一輝 on 2021/05/30.
 //
 
+
 import UIKit
 
 class IGFeedPostGeneralTableViewCell: UITableViewCell {
@@ -29,4 +30,5 @@ class IGFeedPostGeneralTableViewCell: UITableViewCell {
     }
 
 }
+ 
 

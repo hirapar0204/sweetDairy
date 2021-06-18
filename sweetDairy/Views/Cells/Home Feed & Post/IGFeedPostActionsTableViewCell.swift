@@ -5,6 +5,7 @@
 //  Created by 丸井一輝 on 2021/05/30.
 //
 
+
 import UIKit
 
 protocol IGFeedPostActionsTableViewCellDelegate: AnyObject {
@@ -96,3 +97,4 @@ class IGFeedPostActionsTableViewCell: UITableViewCell {
     }
 
 }
+
